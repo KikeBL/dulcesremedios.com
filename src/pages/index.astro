@@ -1,0 +1,56 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import AboutDR from '@/components/AboutDR.astro'
+import Footer from '@/components/Footer.astro'
+import ContactInfo from '@/components/ContactInfo.astro'
+import MenuInit from '@/components/MenuInit.astro'
+import MenuItem from '@/components/elements/MenuItem.astro'
+import MobileMenu from '@/components/MobileMenu.astro'
+import MobileHeader from '@/components/MobileHeader.astro'
+import Navbar from '@/components/Navbar.astro'
+---
+
+<Layout title="Dulces Remedios" description="Respoteria de calidad, sostenible y deliciosa en el corazón de la serranía de Huelva">
+	<main>
+		
+		<Navbar />
+		<MobileHeader />
+		
+		<AboutDR />
+		<ContactInfo />
+		<MenuInit />
+		<MenuItem title="Todo por el chocolate" info="Para los muy chocolateros">
+			<img class="rounded-lg w-80 order-last md:order-first" src="images/highlights/todochocolate.png" slot="before">
+		</MenuItem>
+
+		<MenuItem 
+			title="Tartas de queso" 
+			info="Las tartas de queso hace años que son un imprescindible. Nos encantan por su cremosidad y por la infinidad de combinaciones." 
+			bg="forward-pink">
+			<img class="rounded-lg w-80" src="images/highlights/tartasqueso.jpg" slot="after">
+		</MenuItem>
+
+		<MenuItem title="Saborea el mundo" info="Pocas cosas nos parecen mejor que conocer la gastronomía internacional. Aquí también elaboraremos repostería típica de otros rincones del mundo">
+			<img class="rounded-lg w-80 order-last md:order-first" src="images/highlights/saboreamundo.jpg" slot="before">
+		</MenuItem>
+
+		<MenuItem title="Clásicos Remedios" info="En esta categoría destacaremos los pasteles más tradicionales, la repostería más popular. San Marcos, perrunillas, piononos, petisús..." bg="forward-pink">
+			<img class="rounded-lg w-80" src="images/highlights/clasicosremedios.jpg" slot="after">
+		</MenuItem>
+
+		<MenuItem title="Solo para ti" info="Postres de cuchara para todos los gustos. Algunos de estos postres serán nuestras tarta en formato individual">
+			<img class="rounded-lg w-80 order-last md:order-first" src="images/highlights/soloparati.jpg" slot="before">
+		</MenuItem>
+
+		<MenuItem title="El bocado dulce" info="¿Quieres algo con lo que acompañar el cafelino? Decide cuál te quieres merendar" bg="forward-pink">
+			<img class="rounded-lg w-80" src="images/highlights/bocadodulce.jpg" slot="after">
+		</MenuItem>
+
+		<MenuItem title="Momentos especiales" info="¿Necesitas una tarta especial? Cuéntanos tu idea y te elaboramos una tarta personalizada especialmente para ti">
+			<img class="rounded-lg w-80 order-last md:order-first" src="images/highlights/momentosespeciales.jpg" slot="before">
+		</MenuItem>
+	</main>
+	<Footer />
+	<MobileMenu />
+</Layout>
+

@@ -1,0 +1,113 @@
+---
+import AnchorButton from "@/components/elements/AnchorButton.astro";
+
+
+import { getAllProducts } from "src/scripts/notion";
+const products = await getAllProducts();
+---
+
+<section>
+    <form class="max-w-md mx-auto">
+        <div class="relative z-0 w-full mb-5 group">
+            <input
+                type="text"
+                name="floating_name"
+                id="floating_name"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-main-brown focus:outline-none focus:ring-0 focus:border-main-brown peer"
+                placeholder=" "
+                required
+            />
+            <label
+                for="floating_name"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-main-brown peer-focus:dark:text-main-brown peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >Nombre*</label
+            >
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            <input
+                type="email"
+                name="floating_email"
+                id="floating_email"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-main-brown focus:outline-none focus:ring-0 focus:border-main-brown peer"
+                placeholder=" "
+                required
+            />
+            <label
+                for="floating_email"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-main-brown peer-focus:dark:text-main-brown peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >Correo electrónico</label
+            >
+        </div>
+        
+        <div class="relative z-0 w-full mb-5 group">
+            <input
+                type="tel"
+                name="floating_phone"
+                id="floating_phone"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-main-brown focus:outline-none focus:ring-0 focus:border-main-brown peer"
+                placeholder=" "
+                required
+                pattern="(\+34|0034)?[ -]*(6|7)[ -]*([0-9][ -]*){8}"
+            />
+            <label
+                for="floating_phone"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-main-brown peer-focus:dark:text-main-brown peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >Teléfono (Formato español)</label
+            >
+        </div>
+        <div class="grid md:grid-cols-2 md:gap-6">
+            <div class="relative z-0 w-full mb-5 group">
+                <select
+                    name="floating_cake"
+                    id="floating_cake"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-main-brown focus:outline-none focus:ring-0 focus:border-main-brown peer"
+                >
+                    <option value="">Selecciona tu tarta</option>
+                    {
+                    products.map((cake) => (
+                        <option value="{cake.producto}">{cake.producto}</option>
+                        ))
+                    }
+                </select>
+                <label
+                    for="floating_cake"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-main-brown peer-focus:dark:text-main-brown peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >Elige tu tarta</label
+                >
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+                <input
+                    type="date"
+                    name="floating_fecha"
+                    id="floating_fecha"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-main-brown focus:outline-none focus:ring-0 focus:border-main-brown peer"
+                    placeholder=" "
+                    required
+                />
+                <label
+                    for="floating_fecha"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-main-brown peer-focus:dark:text-main-brown peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >Fecha de recogida</label
+                >
+            </div>
+        </div>
+
+
+        <div class="relative z-0 w-full mb-5 group">
+            <textarea
+                name="floating_message"
+                id="floating_message"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-main-brown focus:outline-none focus:ring-0 focus:border-main-brown peer"
+                placeholder=" "
+                rows="4"
+                required
+            />
+            <label
+                for="floating_message"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-main-brown peer-focus:dark:text-main-brown peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >Consulta o pedido</label
+            >
+        </div>
+        <AnchorButton href="/products">Enviar</AnchorButton>
+    </form>
+</section>
